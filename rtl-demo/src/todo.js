@@ -3,7 +3,7 @@ import './App.css';
 import {addItem, removeItem} from "./actions";
 import { connect } from "react-redux";
 
-const Todo = (props) => {
+export const Todo = (props) => {
   const [data, setData] = useState('')
 
   const updateData = (e)=>{
