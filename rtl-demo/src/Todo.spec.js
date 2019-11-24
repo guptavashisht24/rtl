@@ -23,6 +23,17 @@ describe('Tests without connection', ()=>{
     const { getByText } = render(<Todo items = {[]}/>)
     getByText('REMOVE')
   })
+
+  it('has remove button',()=>{
+    const { getByText } = render(<Todo items = {[]}/>)
+    getByText('REMOVE')
+  })
+
+  it('has list with 0 element',()=>{
+    const { getByTestId } = render(<Todo items = {[]}/>)
+    const todoList = getByTestId("todos-ul")
+    expect(todoList.children.length).toBe(0)
+  })
   
 })
 

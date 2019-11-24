@@ -21,7 +21,9 @@ exports[`Tests without connection matches snapshot 1`] = `
         REMOVE
       </button>
     </div>
-    <ul />
+    <ul
+      data-testid="todos-ul"
+    />
   </div>
 </DocumentFragment>
 `;
