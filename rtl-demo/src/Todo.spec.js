@@ -7,6 +7,12 @@ import { ADD_DATA, REMOVE_DATA } from './types';
 
 import {addItem, removeItem} from "./actions";
 
+import { todoReducer } from './reducer';
+
+import { defaultState } from './initial-state';
+
+
+
 
 
 
@@ -59,11 +65,29 @@ describe('Redux Testing', ()=>{
     it("Create expected action for removeItem", ()=>{
       const expectedAction = {
         type : REMOVE_DATA,
-        payload : ""
+        payload : "",
       }
       expect(removeItem()).toEqual(expectedAction)
     })
 
+  })
+
+  describe("Reducer Testing", ()=>{
+    it('Reducer returns initial State',()=>{
+      expect(todoReducer(undefined, {})).toEqual(defaultState)
+    })
+
+    it('Reducer returns initial State',()=>{
+      expect(todoReducer(defaultState, addItem("vashisht"))).toEqual({
+        items : ["vashisht"]
+      })
+    })
+
+    it('Reducer returns initial State',()=>{
+      expect(todoReducer(defaultState, removeItem())).toEqual({
+        items : []
+      })
+    })
   })
   
 })
