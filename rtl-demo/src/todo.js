@@ -20,7 +20,6 @@ export const Todo = (props) => {
       </ul>
     )
   }
-   console.log(props.items)
    return (
     <div>
       <div className="flex">
