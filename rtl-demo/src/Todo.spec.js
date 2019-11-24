@@ -3,6 +3,11 @@ import { render, cleanup } from '@testing-library/react';
 import "jest-dom/extend-expect";
 import ConnectedTodo, { Todo } from './todo';
 import { exportAllDeclaration } from '@babel/types';
+import { ADD_DATA, REMOVE_DATA } from './types';
+
+import {addItem, removeItem} from "./actions";
+
+
 
 
 
@@ -38,33 +43,27 @@ describe('Tests without connection', ()=>{
 })
 
 
-describe('Test Redux', ()=>{
+describe('Redux Testing', ()=>{
   afterEach(cleanup);
 
-  it('matches snapshot',()=>{
-    const { asFragment } = render(<Todo items = {[]}/>)
-    expect(asFragment()).toMatchSnapshot()
-  })
+  describe("Action Testing",()=>{
 
-  it('has add button',()=>{
-    const { getByText } = render(<Todo items = {[]}/>)
-    getByText('ADD')
-  })
+    it("Create expected action for addItem", ()=>{
+      const expectedAction = {
+        type : ADD_DATA,
+        payload : "vashisht"
+      }
+      expect(addItem("vashisht")).toEqual(expectedAction)
+    })
+  
+    it("Create expected action for removeItem", ()=>{
+      const expectedAction = {
+        type : REMOVE_DATA,
+        payload : ""
+      }
+      expect(removeItem()).toEqual(expectedAction)
+    })
 
-  it('has remove button',()=>{
-    const { getByText } = render(<Todo items = {[]}/>)
-    getByText('REMOVE')
-  })
-
-  it('has remove button',()=>{
-    const { getByText } = render(<Todo items = {[]}/>)
-    getByText('REMOVE')
-  })
-
-  it('has list with 0 element',()=>{
-    const { getByTestId } = render(<Todo items = {[]}/>)
-    const todoList = getByTestId("todos-ul")
-    expect(todoList.children.length).toBe(0)
   })
   
 })

@@ -1,33 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test Redux matches snapshot 1`] = `
-<DocumentFragment>
-  <div>
-    <div
-      class="flex"
-    >
-      <input
-        type="text"
-        value=""
-      />
-      <button
-        type="button"
-      >
-        ADD
-      </button>
-      <button
-        type="button"
-      >
-        REMOVE
-      </button>
-    </div>
-    <ul
-      data-testid="todos-ul"
-    />
-  </div>
-</DocumentFragment>
-`;
-
 exports[`Tests without connection matches snapshot 1`] = `
 <DocumentFragment>
   <div>
