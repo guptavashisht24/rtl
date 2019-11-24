@@ -38,3 +38,35 @@ describe('Tests without connection', ()=>{
 })
 
 
+describe('Test Redux', ()=>{
+  afterEach(cleanup);
+
+  it('matches snapshot',()=>{
+    const { asFragment } = render(<Todo items = {[]}/>)
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('has add button',()=>{
+    const { getByText } = render(<Todo items = {[]}/>)
+    getByText('ADD')
+  })
+
+  it('has remove button',()=>{
+    const { getByText } = render(<Todo items = {[]}/>)
+    getByText('REMOVE')
+  })
+
+  it('has remove button',()=>{
+    const { getByText } = render(<Todo items = {[]}/>)
+    getByText('REMOVE')
+  })
+
+  it('has list with 0 element',()=>{
+    const { getByTestId } = render(<Todo items = {[]}/>)
+    const todoList = getByTestId("todos-ul")
+    expect(todoList.children.length).toBe(0)
+  })
+  
+})
+
+
